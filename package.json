@@ -5,7 +5,7 @@
     "client": "cd client && npm start",
     "server": "node server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"", 
-    "start": "npm run server"
+    "start": "(cd client && npm start) & npm run server"
   },
   "dependencies": {
     "express": "^4.16.2",
