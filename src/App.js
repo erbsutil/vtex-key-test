@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Button, TextField } from '@material-ui/core';
+import Alert from '@material-ui/lab/Alert';
 
 class App extends Component {
   constructor(props) {
@@ -28,24 +30,47 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <p>Este é um teste de requisição para <br />https://nome-da-conta.vtexcommercestable.com.br/api/oms/pvt/orders/ <br />utilizando a chave abaixo.</p>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="key">Key: </label>
-          <input
+          <TextField
+            fullWidth
             id="key"
-            type="text"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            label="Access key"
+            margin="normal"
+            placeholder="vtexappkey-xxxxxx-XXXXXX"
+            variant="outlined"
             onChange={(event) => this.handleChange(event, "key")}
             required
           />
-          <label htmlFor="token">Token: </label>
-          <input
+          <TextField
+            fullWidth
             id="token"
-            type="text"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            label="Secret"
+            margin="normal"
+            multiline
+            placeholder="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+            rows={4}
+            variant="outlined"
             onChange={(event) => this.handleChange(event, "token")}
             required
           />
-          <button type="submit">Submit</button>
+          <Button 
+            color="primary"
+            fontWeight={500}
+            type="submit"
+            variant="contained"
+          >
+            Testar chave
+          </Button>
         </form>
-        <p>{this.state.express}</p>
+        <br />
+        {this.state.express ? <Alert severity="info">{this.state.express}</Alert> : ""}
       </div>
     );
   }
