@@ -1,0 +1,16 @@
+{
+  "name": "server",
+  "main": "index.js",
+  "license": "MIT",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.2",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
+}
